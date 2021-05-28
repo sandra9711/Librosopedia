@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-database.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+       
+    </head>
+
+<body>
+    <div>
+        <div class="prod-1">
+            <title>Books</title>
+            <div class="col-sm-4">
+                <h1>Charlottes Web</h1>
+                <h2>E.B White</h2>
+                <img src="/img/charlottes web.jpg"width="300px" height="300px" alt="Charlottes Web"></img>
+                <p>Rs. 400</p>
+                <button id="d1" class="btn btn-secondary" type="submit">Details</button>
+            <div class="ivis" id="ivis">
+               <legend><b>Contributor details</b></legend>
+               Name: Blessy  <br>
+                   
+               <br><br>
+               Contact:blesseymariasaju@gmail.com<br>
+               
+               <br><br>
+            </div>
+    </div>
+    <div class="col-sm-4">
+        <h1>Charlie & choclate factory</h1>
+        <h2>Roald Dahl</h2>
+        <img src="/img/charlie and choclate factory.jpg" width="300px" height="300px" alt="Charlie and chocolate factory"></img>
+        <p>Rs. 600</p>
+        <button id="d2" class="btn btn-secondary" type="submit">Details</button>
+        <div class="ivis2" id="ivis2">
+           <legend><b>Contributor details</b></legend>
+           Name: Sandra<br>
+               
+           <br><br>
+           Contact: sandrarehan97@gmail.com<br>
+           
+           <br><br>
+           </div>
+        </div>
+    
+        <div class="col-sm-3">
+            <h1>The cat in the hat</h1>
+            <h2>Dr. Suess</h2>
+            <img src="/img/the cat in the hat.jpg" width="300px" height="300px" alt="Charlie and chocolate factory"></img>
+            <p>Rs. 300</p>
+            <button id="d3" class="btn btn-secondary" type="submit">Details</button>
+            <div class="ivis3" id="ivis3">
+               <legend><b>Contributor details</b></legend>
+               Name: Anuvindha<br>
+                   
+               <br><br>
+               Contact: anuvindha.ansalam@gmail.com<br>
+               
+               <br><br>
+               </div>
+            </div>
+    </div>
+      
+    <div class="cont">
+        
+        <button onclick="FormFunctionk()" type="button" class="sec">Contribute in this category</button>
+        <Form  class="fc1" name="fm" id="Form">
+            <fieldset>
+                <legend><b>Book details</b>
+                </legend>
+                Name: <br>
+                <input id="fid1" type="text" name="firstname"  >
+                <br><br>
+                Book Name & category:<br>
+                <input id= "fid2" type="text" name="Bookname"  >
+                <br><br>
+                Contact:<br>
+                <input id="fid3" type="email" name="mail id"  >
+                <br><br>
+                Image:<br>
+                <input id="fid4" type="file" name="bookim" accept="image/x-png,image/gif,image/jpeg">
+                <br><br>
+                Set Price:<br>
+                <input id="fid5" type="text" name="bookpr">
+                <br><br>
+                <button type="submit" onclick="fn()">SUBMIT</button>
+            </fieldset>
+        </Form>
+        <p id="con"></p>
+        </div>
+        <script src="./JS/store_kids.js"></script>
+        <script>
+            function dtFunction(){
+                var name=prompt("Name:","Enter name here");
+                var eid=prompt("Email Id:","Enter mail id here");
+                var bn=prompt("Book:","Enter Book name here");
+                if(name!=null && eid!=null && bn!=null){
+                    document.getElementById("con").innerHTML="Thank you "+name+"\nYou have succesfully uploaded the book details.";
+                }else{
+                    document.getElementById("con").innerHTML="Sorry , upload was unsuccesful.Try Again";
+                }
+            }
+            function FormFunctionk(){
+                if(document.getElementById("Form").style.display="none"){
+                    document.getElementById("Form").style.display="block"
+                    event.preventDefault()
+                }
+            }
+            document.getElementById("d1").onclick=function(){
+                var name;
+                var cont;
+                if(document.getElementById("ivis").style.display="none"){
+                    document.getElementById("ivis").style.display="block";
+                    event.preventDefault()
+                }else if(document.getElementById("ivis").style.display="block"){
+                    document.getElementById("ivis").style.display="none";
+                    event.preventDefault()
+                }
+            }
+            document.getElementById("d2").onclick=function(){
+                var name;
+                var cont;
+                if(document.getElementById("ivis2").style.display="none"){
+                    document.getElementById("ivis2").style.display="block";
+                    event.preventDefault()
+                }else if(document.getElementById("ivis2").style.display="block"){
+                    document.getElementById("ivis2").style.display="none";
+                    event.preventDefault()
+                }
+            }
+            document.getElementById("d3").onclick=function(){
+                var name;
+                var cont;
+                if(document.getElementById("ivis3").style.display="none"){
+                    document.getElementById("ivis3").style.display="block";
+                    event.preventDefault()
+                }else if(document.getElementById("ivis3").style.display="block"){
+                    document.getElementById("ivis3").style.display="none";
+                    event.preventDefault()
+                }
+            }
+            
+           
+        
+        </script>
+</body>
+
+<style>
+
+    .prod-1{
+        background-color: rgb(241, 225, 219);
+        font-style: italic;
+        padding: 20px;
+        margin: 30px;
+        text-align: center;
+    }
+    #Form{
+        display: none;
+    }
+    #ivis{
+        display: none;
+    }
+    #ivis2{
+        display: none;
+    }
+    #ivis3{
+        display: none;
+    }
+    #ivis4{
+        display: none;
+    }
+    .fc1{
+        padding: 20px;
+margin-left: auto;
+margin-right: auto;
+background-color: rgb(204, 192, 175);
+    }
+    .sec{
+        padding: 20px;
+        color: white;
+        background-color: rgb(65, 19, 19);
+        font-size: 2em;
+        margin: 3em;
+    }
+    body{
+        background-image: url("img/img-bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgb(204, 192, 175);
+        background-size: cover;
+        
+    }
+</style>
+</html>
+

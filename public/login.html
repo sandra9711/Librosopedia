@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="icon" href="img\favicon.png" sizes="76x76">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://kit.fontawesome.com/41d2951665.js" crossorigin="anonymous"></script>
+    
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+<script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+<script src="/__/firebase/8.3.1/firebase-database.js"></script>
+<script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+<script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+   
+    <script src="./JS/login.js"></script>
+    <script>
+        function logFun(){
+            var eid=document.getElementsById("reqe").value;
+            if(email_valid(eid)==true){
+                //document.getElementById("gif").innerHTML="<img src='check.gif' width='4px' height='15px'/>";
+                return  true;
+            }else{
+                alert("Invalid email");
+                return  false;
+            }
+        }
+        function pasCk(){
+            if(document.getElementById("reqp").value==""){
+                alert("Pasword cannot be empty");
+                return false;
+            }else{
+                return true;
+            }
+        }
+        function SubmitFun(){
+            location.replace("library.html")
+        }
+        function email_valid()
+        {   var uemail=document.getElementById("reqe").value;
+            var atposition=uemail.indexOf("@");  
+            var dotposition=uemail.lastIndexOf(".");
+            if (atposition<1 || dotposition<atposition+2 || dotposition+2>=uemail.length){
+                alert("Please enter a valid email address");
+                return false;
+            }else{
+                document.getElementById("gif").innerHTML="<img src='/img/check.gif' width='40px' height='15px'/>";
+                return true;
+            }
+        }
+        </script>
+</head>
+
+<body >
+    <div class="container">
+        <img src="img\Librosopedia (1).png" alt="Logo img" width="60px">
+        <h1><b>LOG IN</b></h1>
+    </div>
+    <div class="details">
+        <form>
+            <input type="email" placeholder="Enter Email" onchange="email_valid()" class="email" id="reqe"><div class="gif" id="gif" required></div><br><br>
+
+            <input type="password" placeholder="Enter password" class="psw" id="reqp" onchange="pasCk()" required><br><br>
+
+
+            <button type="button" class="btn" onclick="login()"><b>LOGIN</b></button><br><br>
+            <div class="gl">
+                <div class="g-logo"><img id="glogo" width="80px" src="/img/glogo.png" /></div>
+                <div class="sgnup"><button type="button" class="btn-g" onclick="google_login()"><b>SIGN IN WITH GOOGLE</b></button></div>
+            </div>
+            <br>
+            <hr>
+
+            <p>Don't have an account?<a href="./signin.html">Sign up</a></p>
+        </form>
+    </div>
+    
+    
+</body>
+    
+<style>
+    *
+{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Roboto",sans-serif;
+    margin : 0;
+    padding : 0;
+    background-image:url('/img/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+.gl{
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+	position: relative;
+    cursor: pointer;
+}
+.container{
+    width: 400px;
+    display: flex;
+    padding:10px;
+    border-radius: 20px;
+    background-color: aliceblue;
+    margin: auto;
+    margin-top: 30px;
+    align-content: center;
+}
+.container h1{
+    color: blue;
+    margin: auto;
+    margin-right:auto;
+    margin-left: auto;
+    padding-right: 10px;
+    font-size:20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.btn{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
+    cursor: pointer;
+    outline: none;
+    width: 50%;
+    font-size:large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.btn-g{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    margin-right: 38px;
+    cursor: pointer;
+    outline: none;
+    font-size:large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.details{
+    width : 400px;
+    box-shadow: 0 0 3px rgba(0,0,0,3);
+    border-radius: 20px;
+    background: #999;
+    padding:20px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.email,.psw{
+border-radius: 20px;
+padding: 10px;
+margin: 10px 0;
+width: 100%;
+border: 1px solid #999;
+outline: none;
+}
+</style>
+</html>

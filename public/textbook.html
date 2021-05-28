@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="icon" href="img\favicon.png" sizes="76x76">
+    <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+<script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+<script src="/__/firebase/8.3.1/firebase-database.js"></script>
+<script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+<script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+    <title>TextBooks</title>
+</head>
+<body>
+    <div class="loc-fun">
+        
+        <ul>
+            <li>
+                <img onclick="reset_loc()" src="/img/lib.png" /> 
+            </li>
+        </ul>
+    </div>
+  <div class="container text-center">
+    <h1>TextBooks</h1>
+  </div>       
+    <div class="prod-1">
+      <div class="col-sm-3">
+        <h2><b>Modern Engineering Chemistry</b></h2>
+        <h2>Dr. Kochu Baby</h2>
+        <img src="/img/modern engineering chemistry.jpeg" width="300px" height="300px" alt="chemistry"></img>
+        <p>Rs. 90</p>
+        <button onclick="getCon()" class="btn" type="submit">Details</button>
+        <div class="inv" id="inv">
+           <legend><b>Contributor details</b></legend>
+           Name: Sandra Mariyam Jacob <br>
+               
+           <br><br>
+           Contact: sandrarehan97@gmail.com<br>8547789611<br>
+           
+           <br><br>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+       <h2><b>Basic Electronics & Fundamentals of IT</b></h2>
+       <h2>Muhammed Riyas</h2>
+       <img src="/img/basic electronics.jpeg" width="300px" height="300px" alt="basic electronics"></img>
+       <p>Rs. 80</p>
+       <button onclick="getCon2()" class="btn" type="submit">Details</button>
+       <div class="inv2" id="inv2">
+          <legend><b>Contributor details</b></legend>
+          Name: Blessey Maria Saju<br>
+              
+          <br><br>
+          Contact: blesseymariasaju@gmail.com<br>
+          
+          <br><br>
+          </div>
+       </div>
+
+   <div class="col-sm-3">
+    <h2><b>Basics of Electrical & Electronics Engineering</b></h2>
+    <h2>K A Navas</h2>
+    <img src="/img/beee.jpeg" width="300px" height="300px" alt="BEEE"></img>
+    <p>Rs. 70</p>
+    <button onclick="getCon3()" class="btn" type="submit">Details</button>
+    <div class="inv3" id="inv3">
+       <legend><b>Contributor details</b></legend>
+       Name: Anupama Ajith<br>
+           
+       <br><br>
+       Contact: ponnu1092001@gmail.com<br>
+       
+       <br><br>
+       
+    </div>
+</div>
+    </div>
+    
+    <br>
+    <br>
+    <div class="cont">
+        
+    <button onclick="formFunction()" type="button" class="sec">Contribute in this category</button>
+    <form  class="fc1" name="fm" id="form">
+        <fieldset>
+            <legend><b>Book details</b>
+            </legend>
+            Name: <br>
+            <input id="fid_txt1" type="text" name="firstname"  >
+            <br><br>
+            Book Name & category:<br>
+            <input id= "fid_txt2" type="text" name="lastname"  >
+            <br><br>
+            Contact:<br>
+            <input id="fid_txt3" type="email" name="mail id"  >
+            <br><br>
+            Image:<br>
+            <input id="fid_txt4" type="file" value="upload" name="bookim" accept="image/x-png,image/gif,image/jpeg">
+            <input id="namebox" type="text"><br><img id="myimg"><br><button id="upbtn">Upload</button>
+            <label id="UpProg"></label>
+           <br> Set Price:<br>
+            <input id="fid_txt5" type="text" name="bookpr">
+            <br><br>
+            <form action="#">
+
+                <input type="checkbox" name="checkbox" value="check" id="agree" /> <p>By checking this you agree to share the given contact details to other users and the given data is true</p>
+                
+                
+            </form>
+            <button class="btn btn-success" id="subtn" >SUBMIT</button>
+        </fieldset>
+    </form>
+    <p id="con"></p>  
+    </div>
+    <script src="/JS/store.js"></script>
+    <script>
+        function reset_loc(){
+        location.replace("./library.html")
+    }
+        function check_agree(){
+            if(document.getElementById('agree').checked) { 
+                return true; 
+            } else { 
+                alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); 
+                return false;
+         }
+        }
+        function dtFunction(){
+            var name=prompt("Name:","Enter name here");
+            var eid=prompt("Email Id:","Enter mail id here");
+            var bn=prompt("Book:","Enter Book name here");
+            if(name!=null && eid!=null && bn!=null){
+                document.getElementById("con").innerHTML="Thank you "+name+"\nYou have succesfully uploaded the book details.";
+            }else{
+                document.getElementById("con").innerHTML="Sorry , upload was unsuccesful.Try Again";
+            }
+        }
+        function formFunction(){
+            if(document.getElementById("form").style.display="none"){
+                document.getElementById("form").style.display="block"
+                event.preventDefault()
+            }
+        }
+        function getCon(){
+            var name;
+            var cont;
+            if(document.getElementById("inv").style.display="none"){
+                document.getElementById("inv").style.display="block";
+                event.preventDefault()
+            }else if(document.getElementById("inv").style.display="block"){
+                document.getElementById("inv").style.display="none";
+                event.preventDefault()
+            }
+        }
+        function getCon2(){
+            var name;
+            var cont;
+            if(document.getElementById("inv2").style.display="none"){
+                document.getElementById("inv2").style.display="block";
+                event.preventDefault()
+            }else if(document.getElementById("inv2").style.display="block"){
+                document.getElementById("inv2").style.display="none";
+                event.preventDefault()
+            }
+        }
+        function getCon3(){
+            var name;
+            var cont;
+            if(document.getElementById("inv3").style.display="none"){
+                document.getElementById("inv3").style.display="block";
+                event.preventDefault()
+            }else if(document.getElementById("inv3").style.display="block"){
+                document.getElementById("inv3").style.display="none";
+                event.preventDefault()
+            }
+        } 
+    
+    </script>
+    <style>
+        
+        .prod-1{
+            background-color: rgb(241, 225, 219);
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        #form{
+            display: none;
+        }
+        #inv{
+            display: none;
+            background-color: rgb(204, 192, 175);
+        }
+        #inv2{
+            display: none;
+            background-color: rgb(204, 192, 175);
+        }
+        #inv3{
+            display: none;
+            background-color: rgb(204, 192, 175);
+        }
+        #inv4{
+            display: none;
+            background-color: rgb(204, 192, 175);
+        }
+        .loc-fun {
+	right: 0;
+	position: fixed;
+	top: 3%;
+}
+.loc-fun ul li{
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: right;
+    list-style: none;
+	position: relative;
+    cursor: pointer;
+}
+.loc-fun ul li img{
+  padding: 5px;
+  width: 120px;
+}
+        .fc1{
+            padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(204, 192, 175);
+        }
+        .sec{
+            padding: 20px;
+            color: white;
+            background-color: rgb(65, 19, 19);
+            font-size: 2em;
+            margin: 3em;
+        }
+        body{
+            
+            background-color: rgb(204, 192, 175);
+            
+        }
+    </style>
+        
+     
+</body>
+</html>

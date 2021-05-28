@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="img\favicon.png" sizes="76x76">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+<script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+<script src="/__/firebase/8.3.1/firebase-database.js"></script>
+<script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+<script src="/__/firebase/init.js"></script>
+</head>
+<body>
+    <div class="head-cont">
+        <div class="logo">
+            <img src="img\Librosopedia (1).png" alt="Logo img">
+            <a href="./login.html"><p>Have an account? Sign In</p></a>
+        
+        </div>
+        
+    </div>
+    <hr>
+    <div class="h1-cont">
+        <h2>What do you mainly want to do?</h2>
+    </div>
+    <div class="opt">
+        <p> <input type="radio" id="get" name="get" value="get">I'm here to get books</p>
+        <p> <input type="radio" id="con" name="con" value="con">I'm here to contribute</p>
+        <p> <input type="radio" id="swap" name="swap" value="swap">I'm here to Swap book</p>
+    </div>
+    <div class="btn"><button type="button" class="btn btn-secondary" onclick=" jFunction(); ">Join</button></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<script>
+  function jFunction(){
+    if(document.getElementById("get").checked==true){
+        location.replace("./signin.html")
+        
+    }else if(document.getElementById("con").checked==true){
+        //document.body.style.backgroundColor = "#6d5f5f";
+        location.replace("./signin.html")
+        
+    }else if(document.getElementById("swap").checked==true){
+        location.replace("./signin.html")
+        
+    }else{
+        window.alert("Select one option to join");
+    }
+}
+function loc(){
+    location.replace("library.html")
+}
+</script>
+<style>
+    .h2{
+        color: rgb(1, 44, 1);
+        padding: 30px;
+    }
+    .logo img{
+        max-width: 100%;
+        width: 90px;
+        height: 90px;
+        align-items: center;
+        display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+    }
+    .logo{
+        text-align: right;
+    }
+    .logo p{
+        padding: 20px;
+    }
+    .h1-cont{
+        text-align: center;
+    }
+    .opt p{
+        background-color: rgb(231, 227, 227);
+        padding: 10px;
+        margin: 30px;
+        border-radius: 15px;
+        text-align: center;
+    }
+    .btn{
+        align-items: center;
+        margin-left: 200px;
+    }
+    input{
+        margin: 10px;
+    }
+    @media only screen and (min-width:920px){
+        .btn{
+        align-items: center;
+        margin-left: 300px;
+    }
+    }
+    @media only screen and (max-width:600px){
+        .btn{
+        align-items: center;
+        margin-left: 80px;
+    }
+    }
+    @media only screen and (max-width:760px){
+        .btn{
+        align-items: center;
+        margin-left: 200px;
+    }
+    }
+</style>
+</html>

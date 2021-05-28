@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="icon" href="img\favicon.png" sizes="76x76">
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+<script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+<script src="/__/firebase/8.3.1/firebase-database.js"></script>
+<script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+<script src="/__/firebase/init.js"></script>
+</head>
+<body>
+    <div class="sp-fun">
+        
+        <ul>
+            <li>
+                <img onclick="resetloc()" src="/img/home.png" /> 
+            </li>
+            <li>
+                <img onclick="logout()" src="/img/lgout.png" />
+            </li>
+        </ul>
+    </div>
+    <h1><b>Books by category</b></h1>
+    <div class="lib-cont-r1">
+        <div class="novel">
+            <a href="#" id="novel"><img src="/img/novel.jpg" alt="book"/><span>Novels & Fiction</span></a>
+        </div>
+        <div class="text">
+            <a href="#" id="text"><img src="/img/text.jpg" alt="book"/><span>Text Books</span></a>
+        </div>
+    </div>
+    <div class="lib-cont-r2">
+        <div class="exam">
+            <a href="#" id="exam"><img src="/img/exam.jpg" alt="book"/><span>Competitive exams</span></a>
+        </div>
+        <div class="kids">
+            <a href="#" id="kids"><img src="/img/kids.jpg" alt="book"/><span>Children Books</span></a>
+        </div>
+    </div>
+</body>
+<script src="./JS/login.js"></script>
+    
+<style>
+    
+    body{
+        background-color: rgb(198, 199, 161);
+        background-image: url("/img/wood.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+    }
+    html{
+        height: 100%;
+    }
+    span{
+        font-style: italic;
+        text-align: center;
+    }
+    h1{
+        padding: 20px;
+        text-align: center;
+        color:rgb(71, 68, 45);
+        font-style: italic;
+    }
+    .lib-cont-r1{
+        display: flex;
+        flex-direction: row;
+    }
+    .lib-cont-r2{
+        display: flex;
+        flex-direction: row;
+    }
+    img{
+        width: 250px;
+        
+    }
+    a {
+    position: relative;
+    display: inline-block;
+}
+.novel{
+    padding: 15px;
+    margin: 15px;
+}
+.kids{
+    padding: 15px;
+    margin: 15px;
+}
+.exam{
+    padding: 15px;
+    margin: 15px;
+}
+.text{
+    padding: 15px;
+    margin: 15px;
+}
+a span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1em;
+    margin-left: -50%;
+    width: 100%;
+    height: 2em;
+    color: rgb(245, 244, 244);
+    font-size: 1.7em;
+    background-color: rgba(0,0,0,0.5);
+}
+.sp-fun {
+	right: 0;
+	position: fixed;
+	top: 5%;
+}
+.sp-fun ul li{
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: right;
+    list-style: none;
+	position: relative;
+    cursor: pointer;
+}
+.sp-fun ul li img{
+  padding: 5px;
+  width: 80px;
+}
+@media only screen and (max-width: 600px){
+    .novel{
+    padding: 5px;
+    margin: 5px;
+}
+.kids{
+    padding: 5px;
+    margin: 5px;
+}
+.exam{
+    padding: 5px;
+    margin: 5px;
+}
+.text{
+    padding: 5px;
+    margin: 5px;
+}
+img{
+    width:200px;
+}
+}
+@media only screen and (min-width: 768px){
+    .novel{
+    padding: 10px;
+    margin: 10px;
+}
+.kids{
+    padding: 10px;
+    margin: 10px;
+}
+.exam{
+    padding: 10px;
+    margin: 10px;
+}
+.text{
+    padding: 10px;
+    margin: 10px;
+}
+img{
+    width:300px;
+}
+}
+@media only screen and (min-width: 902px){
+    .novel{
+    padding: 30px;
+    margin: 30px;
+    margin-left: 100px;
+}
+.kids{
+    padding: 30px;
+    margin: 30px;
+}
+.exam{
+    padding: 30px;
+    margin: 30px;
+    margin-left: 100px;
+}
+.text{
+    padding: 30px;
+    margin: 30px;
+}
+img{
+    width:400px;
+}
+}
+</style>
+<script>
+    
+    text=document.getElementById("text").addEventListener("click",calltxt,true);
+    kids=document.getElementById("kids").addEventListener("click",callkds,true);
+    exam=document.getElementById("exam").addEventListener("click",callexm,true);
+    novel=document.getElementById("novel").addEventListener("click",callnvl,true);
+    function callkds(){
+        location.replace("./books/books.html")
+    }
+    function callnvl(){
+        location.replace("./books.html")
+    }
+    function callexm(){
+        location.replace("./books.html")
+    }
+    function calltxt(){
+        location.replace("./textbook.html")
+    }
+    function resetloc(){
+        location.replace("./index.html")
+    }
+</script>
+</html>
